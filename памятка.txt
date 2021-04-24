@@ -1,0 +1,8 @@
+# В вашей локальной копии переключитесь в ветку master
+git checkout master
+# Заберите изменения из репозитория Академии¹ (или academy)
+git pull academy master
+# Отправьте изменения ветки master в ваш форк на Гитхабе (или origin)
+git push origin master
+# Когда вы обновили master, создайте ветку для выполнения задания
+git checkout -b module1-task2
