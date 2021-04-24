@@ -25,4 +25,4 @@ export const createSortingComponent = () => {
       <label class="trip-sort__btn" for="sort-offer">Offers</label>
     </div>
   </form>`;
-}
+};
