@@ -24,7 +24,7 @@ render(siteHeaderElement, createNavigationComponent(), 'beforeend');
 const siteFilterElement = siteMenuElement.querySelector('.trip-controls__filters');
 render(siteFilterElement, createFilterComponent(), 'beforeend');
 
-const NUMBER_ENDPOINTS =3;
+// const NUMBER_ENDPOINTS =3;
 
 const tripEventsElement = document.querySelector('.trip-events');
 render(tripEventsElement, createSortingComponent(), 'beforeend');

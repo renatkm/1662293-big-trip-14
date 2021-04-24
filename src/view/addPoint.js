@@ -1,3 +1,4 @@
 export const createAddPoint = () =>{
-  return ``;
-}
+  return `<li>
+  </li>`;
+};
