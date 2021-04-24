@@ -1,9 +1,11 @@
 import {createNavigationComponent} from './view/navigationComponent.js';
 import {createFilterComponent} from './view/filterComponent.js';
-import {createTripSummaryComponent} from './view/tripSummaryComponent.js';
-import {createCostComponent} from './view/costComponent.js';
-import {createSortingComponent} from './view/sortingComponent.js';
-import {createEditPoint} from './view/editPoint.js';
+import {createInfoSummaryComponent} from './view/infoSummaryComponent.js';
+import {createInfoCostComponent} from './view/infoCostComponent.js';
+import {createSortingPointsComponent} from './view/sortingPointsComponent.js';
+import {createListPointsComponent} from './view/listPointsComponent.js';
+import {createEditPointComponent} from './view/editPoint.js';
+import {createPointComponent} from './view/point.js';
 
 const render = (container, component, place) => {
   container.insertAdjacentHTML(place, component);
@@ -11,10 +13,10 @@ const render = (container, component, place) => {
 
 // Секция даты поездки и стоимости
 const siteTripMainElement  = document.querySelector('.trip-main');
-render(siteTripMainElement, createTripSummaryComponent(), 'afterbegin');
+render(siteTripMainElement, createInfoSummaryComponent(), 'afterbegin');
 
 const siteTripSummaryElement = siteTripMainElement.querySelector('.trip-main__trip-info');
-render(siteTripSummaryElement, createCostComponent(), 'beforeend');
+render(siteTripSummaryElement, createInfoCostComponent(), 'beforeend');
 
 // Меню и фильтры
 const siteMenuElement = document.querySelector('.trip-main__trip-controls');
@@ -24,9 +26,15 @@ render(siteHeaderElement, createNavigationComponent(), 'beforeend');
 const siteFilterElement = siteMenuElement.querySelector('.trip-controls__filters');
 render(siteFilterElement, createFilterComponent(), 'beforeend');
 
-// const NUMBER_ENDPOINTS =3;
+const NUMBER_ENDPOINTS =3;
 
 const tripEventsElement = document.querySelector('.trip-events');
-render(tripEventsElement, createSortingComponent(), 'beforeend');
+render(tripEventsElement, createSortingPointsComponent(), 'beforeend');
+render(tripEventsElement, createListPointsComponent(), 'beforeend');
 
-render(tripEventsElement, createEditPoint(), 'beforeend');
+const siteTripElement = tripEventsElement.querySelector('.trip-events__list');
+render(siteTripElement, createEditPointComponent(), 'afterbegin');
+
+for (let index = 0; index < NUMBER_ENDPOINTS; index++) {
+  render(siteTripElement, createPointComponent(), 'beforeend');
+}
